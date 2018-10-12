@@ -1,0 +1,2 @@
+text" name="(\d+(.\d+)*)
+text" value="<?php echo $_POST['$1'] ?>
