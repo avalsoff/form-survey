@@ -57,6 +57,12 @@ button {
 }
 </style>
 
+<?php 
+
+print_r($_GET);
+
+?>
+
 <body>
   <form method="POST" action="https://echo.htmlacademy.ru" class="container">
     <table>

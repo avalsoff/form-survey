@@ -81,10 +81,10 @@ button {
     //   echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
     // }
     // mysqli_close();
-    $sql = 'SELECT * FROM forms LIMIT 1';
-    $result = mysqli_query($link, $sql);
-    $row = mysqli_fetch_array($result);
-    echo $row['org_name'];
+    // $sql = 'SELECT * FROM forms LIMIT 1';
+    // $result = mysqli_query($link, $sql);
+    // $row = mysqli_fetch_array($result);
+    // echo $row['org_name'];
 
   ?>
 
