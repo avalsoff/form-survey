@@ -31,7 +31,7 @@
 <?php
   require 'functions.php';
   $link = mysqli_connect('localhost', 'root', '', 'db_test');  
-  $sql = 'SELECT * FROM forms LIMIT 1';
+  $sql = 'SELECT * FROM forms';
   $result = mysqli_query($link, $sql);
 ?>
 

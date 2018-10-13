@@ -61,26 +61,28 @@ button {
 <body>
   <?php 
     $link = mysqli_connect('localhost', 'root', '', 'db_test');
-    // $sql = "CREATE TABLE forms(
-    //   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    //   org_name VARCHAR(210) NOT NULL,
-    //   submit_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    //   form_data TEXT NOT NULL
-    // )";
+    $sql = "CREATE TABLE IF NOT EXISTS forms(
+      id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      org_name VARCHAR(210) NOT NULL,
+      submit_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      form_data TEXT NOT NULL
+    )";
+    mysqli_query($link, $sql);
     // if ( mysqli_query($link, $sql) ) {
     //   echo "Table created successfully.";
     // } else {
     //   echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
     // }
-    // $orgName = $_POST['0'];
-    // $formData = serialize($_POST);
-    // $sql = "INSERT INTO forms (org_name, form_data) VALUES ('$orgName', '$formData')";
+    $orgName = $_POST['0'];
+    $formData = serialize($_POST);
+    $sql = "INSERT INTO forms (org_name, form_data) VALUES ('$orgName', '$formData')";
+    mysqli_query($link, $sql);
     // if ( mysqli_query($link, $sql) ) {
     //   echo "Records added successfully.";
     // } else {
     //   echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
     // }
-    // mysqli_close();
+    mysqli_close($link);
     // $sql = 'SELECT * FROM forms LIMIT 1';
     // $result = mysqli_query($link, $sql);
     // $row = mysqli_fetch_array($result);

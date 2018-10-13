@@ -57,10 +57,30 @@ button {
 }
 </style>
 
-<?php 
+<?php
+  require 'functions.php';
+  $link = mysqli_connect('localhost', 'root', '', 'db_test'); 
+  $id = $_GET['id']; 
+  $sql = "SELECT * FROM forms WHERE id = $id";
+  $result = mysqli_query($link, $sql);
+  $row = mysqli_fetch_array($result);
+  $formData = unserialize( $row['form_data'] );
 
-print_r($_GET);
+  $table1RowIndexes = [];
+  foreach ($formData as $key => $value) {
+    if ( substr($key, 0, 2) == 17 ) {
+        $table1RowIndexes[] = explode('_', $key)[1];
+    }
+  }
+  $table1RowMaxIndex = max($table1RowIndexes);
 
+  $table2RowIndexes = [];
+  foreach ($formData as $key => $value) {
+    if ( substr($key, 0, 2) == 25 ) {
+        $table2RowIndexes[] = explode('_', $key)[1];
+    }
+  }
+  $table2RowMaxIndex = max($table2RowIndexes);
 ?>
 
 <body>
@@ -180,21 +200,25 @@ print_r($_GET);
         <th>2020г.</th>
       </tr>
       </tr>
-      <tr>
+
+
+      <?php for ($i = 1; $i <= $table1RowMaxIndex; $i++) { ?>
+      <tr class="table1Row">
         <td>
-          1
+          <?php echo $i ?>
         </td>
-        <td><input type="text" name="17_1"></td>
+        <td><input type="text" name="17<?php echo $i ?>" value="<?php echo $formData["17_$i"] ?>"></td>
         <td>
-          <select name="18_1">
-            <option value="ВО">ВО</option>
-            <option value="СПО">СПО</option>
-            <option value="НПО">НПО</option>
+          <select name="18_<?php echo $i ?>">
+            <option>ВО</option>
+            <option>СПО</option>
+            <option>НПО</option>
+            <option selected><?php echo $formData["18_$i"] ?></option>
           </select>
         </td>
-        <td><input type="text" name="19_1"></td>
+        <td><input type="text" name="19<?php echo $i ?>" value="<?php echo $formData["19_$i"] ?>"></td>
         <td>
-          <select name="20_1">
+          <select name="20_<?php echo $i ?>">
             <option>До 20 000 руб.</option>
             <option>20 001 - 30 000 руб.</option>
             <option>30 001 - 40 000 руб.</option>
@@ -202,13 +226,15 @@ print_r($_GET);
             <option>60 001 - 80 000 руб.</option>
             <option>80 001 - 100 000 руб.</option>
             <option>более 100 000 руб.</option>
+            <option selected><?php echo $formData["20_$i"] ?></option>
           </select>
         </td>
-        <td><input type="text" name="21_1"></td>
-        <td><input type="text" name="22_1"></td>
-        <td><input type="text" name="23_1"></td>
-        <td><input type="text" name="24_1"></td>
+        <td><input type="text" name="21<?php echo $i ?>" value="<?php echo $formData["21_$i"] ?>"></td>
+        <td><input type="text" name="22<?php echo $i ?>" value="<?php echo $formData["22_$i"] ?>"></td>
+        <td><input type="text" name="23<?php echo $i ?>" value="<?php echo $formData["23_$i"] ?>"></td>
+        <td><input type="text" name="24<?php echo $i ?>" value="<?php echo $formData["24_$i"] ?>"></td>
       </tr>
+      <?php } ?>
     </table>
     <button id="btn-1" role="button">Добавить строку</button>
     <button id="btn-1-del" role="button">Удалить строку</button>
@@ -224,12 +250,16 @@ print_r($_GET);
         <th>В среднесрочном периоде (на 3-5 лет вперед)</th>
         <th>В долгосрочном периоде (на 6-10 лет вперед)</th>
       </tr>
-      <tr>
+
+      
+      <?php for ($i = 1; $i <= $table2RowMaxIndex; $i++) { ?>
+      <tr class="table2Row">
         <td>
-          1
+          <?php echo $i ?>
         </td>
         <td>
-          <select name="25_1">
+          <select name="25_<?php echo $i ?>">
+            <option selected><?php echo $formData["25_$i"] ?></option>
             <option>3D Моделирование для компьютерных игр</option>
             <option>Агрономия</option>
             <option>Администрирование отеля</option>
@@ -360,27 +390,31 @@ print_r($_GET);
           </select>
         </td>
         <td>
-          <select name="26_1">
+          <select name="26_<?php echo $i ?>">
+            <option selected><?php echo $formData["26_$i"] ?></option>
             <option value="высокая">Высокая</option>
             <option value="средняя">Средняя</option>
             <option value="низкая">Низкая</option>
           </select>
         </td>
         <td>
-          <select name="27_1">
+          <select name="27_<?php echo $i ?>">
+            <option selected><?php echo $formData["27_$i"] ?></option>
             <option value="высокая">Высокая</option>
             <option value="средняя">Средняя</option>
             <option value="низкая">Низкая</option>
           </select>
         </td>
         <td>
-          <select name="28_1">
+          <select name="28_<?php echo $i ?>">            
+            <option selected><?php echo $formData["28_$i"] ?></option>
             <option value="высокая">Высокая</option>
             <option value="средняя">Средняя</option>
             <option value="низкая">Низкая</option>
           </select>
         </td>
       </tr>
+      <?php } ?>
     </table>
     <button id="btn-2" role="button">Добавить строку</button>
     <button id="btn-2-del" role="button">Удалить строку</button>
@@ -674,7 +708,7 @@ print_r($_GET);
     var table1 = document.getElementById('tbl-1');
     var button1 = document.getElementById('btn-1');
     var button1Del = document.getElementById('btn-1-del');
-    var id1 = 2;
+    var id1 = <?php echo $table1RowMaxIndex ?> + 1;
 
     button1.addEventListener('click', function (evt) {
       evt.preventDefault();
@@ -692,7 +726,7 @@ print_r($_GET);
     var table2 = document.getElementById('tbl-2');
     var button2 = document.getElementById('btn-2');
     var button2Del = document.getElementById('btn-2-del');
-    var id2 = 2;
+    var id2 = <?php echo $table2RowMaxIndex ?> + 1;
 
     button2.addEventListener('click', function (evt) {
       evt.preventDefault();
