@@ -88,64 +88,65 @@ button {
     <table>
       <tr>
         <th style="width: 40%">Полное наименование организации</th>
-        <td><input type="text" name="0"></td>
+        <td><input type="text" name="0" value="<?php echo $formData['0'] ?>"></td>
       </tr>
       <tr>
         <th>Код и наименование основного вида экономической деятельности (по классификатору до 01.01.2017 года)</th>
-        <td><input type="text" name="1"></td>
+        <td><input type="text" name="1" value="<?php echo $formData['1'] ?>"></td>
       </tr>
       <tr>
         <th>Код и наименование основного вида экономической деятельности (по классификатору после 01.01.2017 года)</th>
-        <td><input type="text" name="2"></td>
+        <td><input type="text" name="2" value="<?php echo $formData['2'] ?>"></td>
       </tr>
       <tr>
         <th>Форма собственности</th>
         <td>
           <select name="3">
-            <option value="государственная">Государственная</option>
-            <option value="муниципальная">Муниципальная</option>
-            <option value="негосударственная">Негосударственная</option>
+            <option selected><?php echo $formData['3'] ?></option>
+            <option>Государственная</option>
+            <option>Муниципальная</option>
+            <option>Негосударственная</option>
           </select>
         </td>
       </tr>
       <tr>
         <th>Фактический адрес</th>
-        <td><input type="text" name="4"></td>
+        <td><input type="text" name="4" value="<?php echo $formData['4'] ?>"></td>
       </tr>
       <tr>
         <th>Муниципальное образование</th>
-        <td><input type="text" name="5"></td>
+        <td><input type="text" name="5" value="<?php echo $formData['5'] ?>"></td>
       </tr>
       <tr>
         <th>Телефон</th>
-        <td><input type="text" name="6"></td>
+        <td><input type="text" name="6" value="<?php echo $formData['6'] ?>"></td>
       </tr>
       <tr>
         <th>Адрес электронной почты</th>
-        <td><input type="text" name="7"></td>
+        <td><input type="text" name="7" value="<?php echo $formData['7'] ?>"></td>
       </tr>
       <tr>
         <th>Год основания предприятия</th>
-        <td><input type="text" name="8"></td>
+        <td><input type="text" name="8" value="<?php echo $formData['8'] ?>"></td>
       </tr>
       <tr>
         <th>Ф.И.О. руководителя предприятия</th>
-        <td><input type="text" name="9"></td>
+        <td><input type="text" name="9" value="<?php echo $formData['9'] ?>"></td>
       </tr>
     </table>
 
     <table>
       <tr>
         <th style="width: 40%">Ф.И.О. ответственного за заполнение анкеты</th>
-        <td><input type="text" name="10"></td>
+        <td><input type="text" name="10" value="<?php echo $formData['10'] ?>"></td>
       </tr>
       <tr>
         <th>Адрес электронной почты</th>
-        <td><input type="text" name="11"></td>
+        <td><input type="text" name="11" value="<?php echo $formData['11'] ?>"></td>
       </tr>
       <tr>
         <th>Контактный телефон</th>
-        <td><input type="text" name="12"></td>
+        <td><input type="text" name="12" value="<?php echo $formData['12'] ?>"></td>
       </tr>
     </table>
 
@@ -163,10 +164,10 @@ button {
       </tr>
       <tr>
         <th>Среднесписочная численность работников за год (без внешних совместителей и работников несписочного состава)</th>
-        <td><input type="text" name="13"></td>
-        <td><input type="text" name="14"></td>
-        <td><input type="text" name="15"></td>
-        <td><input type="text" name="16"></td>
+        <td><input type="text" name="13" value="<?php echo $formData['13'] ?>"></td>
+        <td><input type="text" name="14" value="<?php echo $formData['14'] ?>"></td>
+        <td><input type="text" name="15" value="<?php echo $formData['15'] ?>"></td>
+        <td><input type="text" name="16" value="<?php echo $formData['16'] ?>"></td>
       </tr>
     </table>
 
@@ -219,6 +220,7 @@ button {
         <td><input type="text" name="19<?php echo $i ?>" value="<?php echo $formData["19_$i"] ?>"></td>
         <td>
           <select name="20_<?php echo $i ?>">
+            <option selected><?php echo $formData["20_$i"] ?></option>
             <option>До 20 000 руб.</option>
             <option>20 001 - 30 000 руб.</option>
             <option>30 001 - 40 000 руб.</option>
@@ -226,7 +228,6 @@ button {
             <option>60 001 - 80 000 руб.</option>
             <option>80 001 - 100 000 руб.</option>
             <option>более 100 000 руб.</option>
-            <option selected><?php echo $formData["20_$i"] ?></option>
           </select>
         </td>
         <td><input type="text" name="21<?php echo $i ?>" value="<?php echo $formData["21_$i"] ?>"></td>
@@ -392,25 +393,25 @@ button {
         <td>
           <select name="26_<?php echo $i ?>">
             <option selected><?php echo $formData["26_$i"] ?></option>
-            <option value="высокая">Высокая</option>
-            <option value="средняя">Средняя</option>
-            <option value="низкая">Низкая</option>
+            <option>Высокая</option>
+            <option>Средняя</option>
+            <option>Низкая</option>
           </select>
         </td>
         <td>
           <select name="27_<?php echo $i ?>">
             <option selected><?php echo $formData["27_$i"] ?></option>
-            <option value="высокая">Высокая</option>
-            <option value="средняя">Средняя</option>
-            <option value="низкая">Низкая</option>
+            <option>Высокая</option>
+            <option>Средняя</option>
+            <option>Низкая</option>
           </select>
         </td>
         <td>
           <select name="28_<?php echo $i ?>">            
             <option selected><?php echo $formData["28_$i"] ?></option>
-            <option value="высокая">Высокая</option>
-            <option value="средняя">Средняя</option>
-            <option value="низкая">Низкая</option>
+            <option>Высокая</option>
+            <option>Средняя</option>
+            <option>Низкая</option>
           </select>
         </td>
       </tr>
@@ -426,37 +427,37 @@ button {
       </tr>
       <tr>
         <th>Всего</th>
-        <td><input type="text" name="29"></td>
-        <td><input type="text" name="30"></td>
+        <td><input type="text" name="29" value="<?php echo $formData['29'] ?>"></td>
+        <td><input type="text" name="30" value="<?php echo $formData['30'] ?>"></td>
       </tr>
       <tr>
         <th colspan="3">В том числе</th>
       </tr>
       <tr>
         <th>1) В связи с сокращением численности работников</th>
-        <td><input type="text" name="31"></td>
-        <td><input type="text" name="32"></td>
+        <td><input type="text" name="31" value="<?php echo $formData['31'] ?>"></td>
+        <td><input type="text" name="32" value="<?php echo $formData['32'] ?>"></td>
       </tr>
       <tr>
         <th>2) По собственному желанию</th>
-        <td><input type="text" name="33"></td>
-        <td><input type="text" name="34"></td>
+        <td><input type="text" name="33" value="<?php echo $formData['33'] ?>"></td>
+        <td><input type="text" name="34" value="<?php echo $formData['34'] ?>"></td>
       </tr>
       <tr>
         <th>Из них по причине выхода на пенсию</th>
-        <td><input type="text" name="35"></td>
-        <td><input type="text" name="36"></td>
+        <td><input type="text" name="35" value="<?php echo $formData['35'] ?>"></td>
+        <td><input type="text" name="36" value="<?php echo $formData['36'] ?>"></td>
       </tr>
 
       <tr>
         <th>3) Иные причины</th>
-        <td><input type="text" name="37"></td>
-        <td><input type="text" name="38"></td>
+        <td><input type="text" name="37" value="<?php echo $formData['37'] ?>"></td>
+        <td><input type="text" name="38" value="<?php echo $formData['38'] ?>"></td>
       </tr>
       <tr>
         <th>Из них в связи с потерей трудоспособности (инвалидность, смерть и др.)</th>
-        <td><input type="text" name="39"></td>
-        <td><input type="text" name="40"></td>
+        <td><input type="text" name="39" value="<?php echo $formData['39'] ?>"></td>
+        <td><input type="text" name="40" value="<?php echo $formData['40'] ?>"></td>
       </tr>
     </table>
     <table>
@@ -468,45 +469,45 @@ button {
       </tr>
       <tr>
         <th>Объем промышленного производства</th>
-        <td><input type="text" name="41"></td>
-        <td><input type="text" name="42"></td>
-        <td><input type="text" name="43"></td>
+        <td><input type="text" name="41" value="<?php echo $formData['41'] ?>"></td>
+        <td><input type="text" name="42" value="<?php echo $formData['42'] ?>"></td>
+        <td><input type="text" name="43" value="<?php echo $formData['43'] ?>"></td>
       </tr>
       <tr>
         <th>Объем инвестиций</th>
-        <td><input type="text" name="44"></td>
-        <td><input type="text" name="45"></td>
-        <td><input type="text" name="46"></td>
+        <td><input type="text" name="44" value="<?php echo $formData['44'] ?>"></td>
+        <td><input type="text" name="45" value="<?php echo $formData['45'] ?>"></td>
+        <td><input type="text" name="46" value="<?php echo $formData['46'] ?>"></td>
       </tr>
       <tr>
         <th>Среднемесячная заработная плата работников</th>
-        <td><input type="text" name="47"></td>
-        <td><input type="text" name="48"></td>
-        <td><input type="text" name="49"></td>
+        <td><input type="text" name="47" value="<?php echo $formData['47'] ?>"></td>
+        <td><input type="text" name="48" value="<?php echo $formData['48'] ?>"></td>
+        <td><input type="text" name="49" value="<?php echo $formData['49'] ?>"></td>
       </tr>
       <tr>
         <th>Среднесписочная численность работников за год</th>
-        <td><input type="text" name="50"></td>
-        <td><input type="text" name="51"></td>
-        <td><input type="text" name="52"></td>
+        <td><input type="text" name="50" value="<?php echo $formData['50'] ?>"></td>
+        <td><input type="text" name="51" value="<?php echo $formData['51'] ?>"></td>
+        <td><input type="text" name="52" value="<?php echo $formData['52'] ?>"></td>
       </tr>
       <tr>
         <th>Производительность труда</th>
-        <td><input type="text" name="53"></td>
-        <td><input type="text" name="54"></td>
-        <td><input type="text" name="55"></td>
+        <td><input type="text" name="53" value="<?php echo $formData['53'] ?>"></td>
+        <td><input type="text" name="54" value="<?php echo $formData['54'] ?>"></td>
+        <td><input type="text" name="55" value="<?php echo $formData['55'] ?>"></td>
       </tr>
       <tr>
         <th>Прибыль</th>
-        <td><input type="text" name="56"></td>
-        <td><input type="text" name="57"></td>
-        <td><input type="text" name="58"></td>
+        <td><input type="text" name="56" value="<?php echo $formData['56'] ?>"></td>
+        <td><input type="text" name="57" value="<?php echo $formData['57'] ?>"></td>
+        <td><input type="text" name="58" value="<?php echo $formData['58'] ?>"></td>
       </tr>
       <tr>
         <th>Налоговые поступления в бюджеты всех уровней</th>
-        <td><input type="text" name="59"></td>
-        <td><input type="text" name="60"></td>
-        <td><input type="text" name="61"></td>
+        <td><input type="text" name="59" value="<?php echo $formData['59'] ?>"></td>
+        <td><input type="text" name="60" value="<?php echo $formData['60'] ?>"></td>
+        <td><input type="text" name="61" value="<?php echo $formData['61'] ?>"></td>
       </tr>
     </table>
   </form>
@@ -520,9 +521,9 @@ button {
         <td><input type="text" name="17_${nextId}"></td>
         <td>
           <select name="18_${nextId}">
-            <option value="ВО">ВО</option>
-            <option value="СПО">СПО</option>
-            <option value="НПО">НПО</option>
+            <option>ВО</option>
+            <option>СПО</option>
+            <option>НПО</option>
           </select>
         </td>
         <td><input type="text" name="19_${nextId}"></td>
@@ -683,23 +684,23 @@ button {
         </td>
         <td>
           <select name="26_${nextId}">
-            <option value="высокая">Высокая</option>
-            <option value="средняя">Средняя</option>
-            <option value="низкая">Низкая</option>
+            <option>Высокая</option>
+            <option>Средняя</option>
+            <option>Низкая</option>
           </select>
         </td>
         <td>
           <select name="27_${nextId}">
-            <option value="высокая">Высокая</option>
-            <option value="средняя">Средняя</option>
-            <option value="низкая">Низкая</option>
+            <option>Высокая</option>
+            <option>Средняя</option>
+            <option>Низкая</option>
           </select>
         </td>
         <td>
           <select name="28_${nextId}">
-            <option value="высокая">Высокая</option>
-            <option value="средняя">Средняя</option>
-            <option value="низкая">Низкая</option>
+            <option>Высокая</option>
+            <option>Средняя</option>
+            <option>Низкая</option>
           </select>
         </td>
       </tr>`
