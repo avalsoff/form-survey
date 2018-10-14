@@ -85,6 +85,7 @@ button {
 
 <body>
   <form method="POST" action="https://echo.htmlacademy.ru" class="container">
+    <a style="display:block;margin-bottom:20px;" href="<?php echo url() . $FOLDER_NAME . 'links.php' ?>">Список форм</a>
     <table>
       <tr>
         <th style="width: 40%">Полное наименование организации</th>

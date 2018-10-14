@@ -47,7 +47,7 @@
       <?php 
       while ($row = mysqli_fetch_array($result)) { ?>
         <tr>
-          <td><?php echo $row['id'] ?></td>
+          <td><a href="<?php echo url() . $FOLDER_NAME . 'single.php?id=' . $row['id'] ?>"><?php echo $row['id'] ?></a></td>
           <td><a href="<?php echo url() . $FOLDER_NAME . 'single.php?id=' . $row['id'] ?>"><?php echo $row['org_name'] ?></a></td>
           <td><?php echo $row['submit_date'] ?></td>
         </tr>
